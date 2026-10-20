@@ -47,7 +47,7 @@ const ImagePicker = ({ files, setFiles, existing = [], onRemoveExisting }) => {
       <div className='flex flex-wrap gap-3'>
         {existing.map((src, i) => (
           <div key={src + i} className='relative'>
-            <img src={src} alt='' className='h-20 w-20 rounded-lg border border-slate-200 object-cover dark:border-[#2d3750]' />
+            <img src={fileUrl(src)} alt='' className='h-20 w-20 rounded-lg border border-slate-200 object-cover dark:border-[#2d3750]' />
             {onRemoveExisting && (
               <button
                 type='button'
@@ -62,7 +62,7 @@ const ImagePicker = ({ files, setFiles, existing = [], onRemoveExisting }) => {
 
         {previews.map((p, i) => (
           <div key={p.url} className='relative'>
-            <img src={p.url} alt={p.name} className='h-20 w-20 rounded-lg border border-indigo-400 object-cover' />
+            <img src={fileUrl(p.url)} alt={p.name} className='h-20 w-20 rounded-lg border border-indigo-400 object-cover' />
             <button
               type='button'
               onClick={() => setFiles(files.filter((_, idx) => idx !== i))}
