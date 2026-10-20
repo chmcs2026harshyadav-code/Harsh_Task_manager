@@ -2,7 +2,10 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { logout } from "./authSlice";
 
 // "/api" is forwarded to the Express server by the Vite proxy (see vite.config.js)
-const rawBaseQuery = fetchBaseQuery({ baseUrl: "/api", credentials: "include" });
+const rawBaseQuery = fetchBaseQuery({
+  baseUrl: `${import.meta.env.VITE_API_URL}/api`,
+  credentials: "include",
+});
 
 // if the server says "not logged in" (cookie expired / account disabled) -> log out in the UI
 const baseQuery = async (args, api, extraOptions) => {
