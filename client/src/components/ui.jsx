@@ -202,7 +202,7 @@ export const Lightbox = ({ src, onClose }) => {
         <MdClose />
       </button>
       <img
-        src={src}
+        src={fileUrl(src)}
         alt='preview'
         className='max-h-full max-w-full rounded-lg object-contain'
         onClick={(e) => e.stopPropagation()}
@@ -220,7 +220,7 @@ export const ImageGrid = ({ images = [], onRemove }) => {
         {images.map((src, i) => (
           <div key={src + i} className='group relative'>
             <img
-              src={src}
+              src={fileUrl(src)}
               alt={`attachment ${i + 1}`}
               onClick={() => setView(src)}
               className='h-28 w-full cursor-zoom-in rounded-lg border border-slate-200 object-cover transition hover:opacity-90 dark:border-[#2d3750]'
