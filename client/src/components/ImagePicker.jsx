@@ -3,6 +3,7 @@ import { BiImages } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 import { toast } from "sonner";
 import { useUploadImagesMutation } from "../redux/slices/api/taskApiSlice";
+import { fileUrl } from "../utils";
 
 const MAX_FILES = 6;
 const MAX_MB = 5;
