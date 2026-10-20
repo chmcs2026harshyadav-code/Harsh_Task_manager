@@ -1,9 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { logout } from "./authSlice";
 
-// "/api" is forwarded to the Express server by the Vite proxy (see vite.config.js)
+// Localhost: VITE_API_URL khali -> "/api" Vite proxy se server tak jaata hai
+// Render: VITE_API_URL = https://tera-server.onrender.com (bina last "/" ke)
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 const rawBaseQuery = fetchBaseQuery({
-  baseUrl: `${import.meta.env.VITE_API_URL}/api`,
+  baseUrl: `${API_URL}/api`,
   credentials: "include",
 });
 
