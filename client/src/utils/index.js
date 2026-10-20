@@ -101,3 +101,10 @@ export const canEditTask = (task, user) => {
     ["todo", "in progress"].includes(task.stage)
   );
 };
+
+// "/uploads/abc.png" -> deploy ke baad server ke full URL me badal deta hai
+// (localhost pe VITE_API_URL khali hota hai, to path waisa hi rehta hai)
+export const fileUrl = (u = "") =>
+  typeof u === "string" && u.startsWith("/uploads/")
+    ? `${import.meta.env.VITE_API_URL || ""}${u}`
+    : u;
