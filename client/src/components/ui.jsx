@@ -10,6 +10,7 @@ import {
   STAGE_LABEL,
   STAGE_STYLE,
   getInitials,
+  fileUrl,
 } from "../utils";
 
 export const Spinner = ({ className }) => (
